@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">    <!-- Define el idioma del documento como español -->
+
+<head>
+    <meta charset="utf-8">  <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Para que la página sea responsive -->
+    <link rel="icon" type="image/png" href="Imagenes\ChatGPT Image 17 may 2025, 11_50_16 a.m..png">     <!-- Ícono del sitio web -->
+    <link rel="stylesheet" href="style.css">    <!-- Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Para ti Anitha✨</title>     <!-- Título que aparece en la pestaña del navegador -->
+</head>
+<body>
+
+    <!-- Menú de navegación principal -->
+
+    <div id="menu">
+				<ul>
+					<li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+					<li><a href="#minitext1"><i class="fas fa-clock"></i> Nuesta Historia</a></li>
+					<li><a href="#minitext2"><i class="fas fa-puzzle-piece"></i> Rompecabezas</a></li>
+					<li><a href="#minitext3"><i class="fas fa-envelope"></i> Carta Virtual</a></li>
+					<li><a href="indexcora.html"> 🫣 </a></li>
+				</ul>
+	</div>
+    <br></br>   <!-- Espaciado visual -->
+    <br></br>
+
+     <!-- Texto introductorio -->
+    <div class="minitext">
+        <p>"Hola, tú sabes que eres muy especial para mí, ¿cierto? Pensando en una forma de hacerte un detalle, se me ocurrió crearte una pequeña página. Quizás es algo simple, pero está hecha con todo el cariño del mundo, esperando que te guste tanto como tú me gustas a mí. 🫂❤‍🩹 Y para comenzar, quiero darte cinco razones por las que me gustas... mejor dicho, por las que me encantas."</p>
+    </div>
+
+    <!-- Carrusel de imágenes -->
+<div class="carrusel">
+    <!-- Botón atrás -->
+    <div class="atras">
+        <img 
+            style="cursor: pointer; max-width: 40px; width: 10vw;" 
+            id="atras" 
+            src="Imagenes/atras.svg" 
+            alt="Atrás" 
+            loading="lazy">
+    </div>
+
+    <!-- Imagen y texto del carrusel -->
+    <div class="imagenes">
+        <div id="img">
+            <img class="img" src="Imagenes/nosotros.jpg" alt="Imagen 1" loading="lazy">
+        </div>
+
+        <div id="texto" class="texto">
+            <h3>Razón N°1</h3>
+            <p>Me gusta ver cómo te esfuerzas día a día y siempre das lo mejor de ti. Aunque no siempre tengas los mejores días, sé que luchas por seguir adelante.</p>
+        </div>
+    </div>
+
+    <!-- Botón adelante -->
+    <div class="adelante" id="adelante">
+        <img 
+            style="cursor: pointer; max-width: 40px; width: 10vw;" 
+            src="Imagenes/adelante.svg" 
+            alt="Adelante" 
+            loading="lazy">
+    </div>
+</div>
+
+    <!-- Puntos de navegación del carrusel -->
+    <div class="puntos" id="puntos"></div>
+
+    <div class="minitext" id="minitext1">
+        <p>"Sabes que hemos pasado por muchos momentos, tanto buenos como no tan buenos. Por eso quise hacer esta pequeña línea de tiempo sobre cómo ha sido nuestro recorrido juntos, desde el inicio hasta hoy. Quizá haya muchas cosas que queden fuera, pero espero que te guste, mi amorcito."</p>
+    </div>
+
+    <br></br>
+
+    <div id="timeline"></div>
+
+    <br></br>
+    <br></br>
+
+    <div class="minitext" id="minitext2">
+        <p>"Ahora hice un pequeño rompecabezas con una foto especial para mi. 🤭"</p>
+    </div>
+
+    <br></br>
+
+    <div class="Boxes-container" id="puzzle">
+        <div class="drag" id="drag">
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block1" style="--img:url('Imagenes/part_1.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block2" style="--img:url('Imagenes/part_2.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block3" style="--img:url('Imagenes/part_3.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block4" style="--img:url('Imagenes/part_4.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block5" style="--img:url('Imagenes/part_5.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block6" style="--img:url('Imagenes/part_6.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block7" style="--img:url('Imagenes/part_7.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block8" style="--img:url('Imagenes/part_8.jpg')"></div>
+        </div>
+        <div class="dragBox">
+            <div class="imgpuzzle" draggable="true" ondragstart="drag(event)" id="block9" style="--img:url('Imagenes/part_9.jpg')"></div>
+        </div>
+        </div>
+
+    <div class="board">
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    </div>
+
+    <br></br>
+
+    <button class="reinicio" onclick="window.location.reload();">Reinicio</button>
+
+    <br></br>
+    <br></br>
+
+    <div class="minitext" id="minitext3">
+        <p>"Y por último, hay una pequeña carta. Sé que nunca me van a alcanzar las palabras para decirte lo mucho que te amo. Espero que te guste. 🥹❤️‍🩹"</p>
+    </div>
+
+    <h2>Anita mi amor 💜💛</h2>
+    <div class="contenedor" id="Carta Virtual">
+        <div class="envoltura-sobre">
+            <div class="sobre">
+                <div class="carta">
+                    <div class="contenido">
+                        <strong>Para la niña de mis ojos</strong>
+                            <p>
+                            Para el <strong>amor de mi vida</strong>:<br>
+                            Desde que te vi, supe que mi corazón había encontrado un refugio. En un mundo lleno de prisas, de apariencias y de corazones distraídos, tú llegaste como un suspiro de calma, como esa luz cálida que da sentido incluso a los días más grises. No me equivoqué al sentir que eras especial, porque con cada día que pasa, descubro en ti una bondad, una ternura y una fuerza que me enamoran aún más. <br><br>
+                            Le agradezco a Dios infinitamente por cruzar nuestros caminos. Tu presencia en mi vida es un regalo que valoro con todo mi ser. Gracias por ser mi apoyo cuando todo parece derrumbarse, por escuchar incluso lo que no digo, por abrazar mis silencios y transformar mis días con solo una sonrisa. Gracias por estar, por quedarte, por elegirme. <br><br>
+                            Nunca olvidaré todo lo que haces por mí, lo mucho que significas y lo profundamente que te admiro. Le pido a Dios que te cuide siempre, que te dé paz en esas luchas internas que callas, y que te recuerde cada día lo valiosa que eres. Que te llene de fuerza y de sueños hermosos, porque mereces todo lo bueno de este mundo. <br><br>
+                            Cada momento contigo es un tesoro que guardo en el alma. Quisiera congelar cada risa, cada mirada, cada instante a tu lado. Y deseo con todo mi corazón que sigamos creando recuerdos juntos, construyendo algo hermoso, paso a paso. Sé que tengo fallas, pero por ti quiero mejorar, crecer, y convertirme en alguien digno de tu amor. <br><br>
+                            <strong>Te quiero con el alma. Te amo sin medida.</strong> Mi corazón, mi mente y mi ser entero te pertenecen. Esta carta es sencilla, lo sé, pero está escrita con cada latido de mi amor por ti. <br><br>
+                            Con todo mi <strong>amor</strong> para Anita (<em>la niña que amo y por quien todo vale la pena</em>). <br><br>
+                            <span style="font-size: 0.9em; color: purple;">PD: Si esta carta fuera un programa, su salida sería:</span> <br>
+                            <code>"Eres el milagro más bonito que me ha pasado."</code>
+                            </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="corazon"></div>
+            <div class="solapa-derecha"></div>
+            <div class="solapa-izquierda"></div>
+        </div>
+    </div>
+
+    <br></br>
+    
+    <footer><p>&copy;2025 Todos los derechos reservados. Este sitio web y su contenido están protegidos por las leyes de derechos de autor y otras leyes de propiedad intelectual. Cualquier reproducción total o parcial sin la autorización de mi amorcito está estrictamente prohibida 🥰.</p></footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

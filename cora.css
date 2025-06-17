@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", serif;
+    background-color: #0b1522;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+ul {
+    list-style: none;                          /* Elimina los puntos o viñetas predeterminadas */
+    padding: 0;                                /* Quita el espacio interno */
+    margin: 0;                                 /* Quita el espacio externo */
+    display: flex;                             /* Muestra los ítems en una sola línea */
+    justify-content: center;                   /* Centra los ítems horizontalmente */
+}
+
+/* Estilo para los enlaces (<a>) dentro de los <li> */
+ul li a {
+    text-decoration: none;                     /* Quita el subrayado de los enlaces */
+    padding: 15px 20px;                        /* Espaciado interno (alto y a los lados) */
+    color: #4c2c4d;                          /* Color del texto del enlace */
+    font-family: 'Cormorant Garamond', serif;  /* Fuente de los enlaces */
+    font-size: 20px;                           /* Tamaño del texto */
+    transition: 0.5s;                          /* Suaviza la transición cuando el estilo cambia */
+}
+
+/* Estilo cuando el mouse pasa sobre el enlace */
+ul li a:hover {
+    background-color: #4c2c4d;               /* Cambia el fondo a violeta oscuro */
+    color: #f8e6ef;                            /* Cambia el texto a blanco */
+    cursor: pointer;                           /* Cambia el cursor a una mano (clic) */
+    border-radius: 20px;                       /* Bordes redondeados para efecto visual */
+}
+
+.heart {
+    margin-top: 80px; /* deja espacio suficiente bajo el menú */
+    height: 200px;
+    width: 200px;
+    background-color: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;  
+    font-size: 12px; 
+    text-align: center;
+    padding: 10px;
+}
+
+.heart p {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    transform: rotate(45deg) translate(0,-50px);
+}
+
+@keyframes  heart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: #f20044;
+    top: -50%;
+    border-radius: 100px;
+    box-shadow: -10px -10px 90px #f20044;
+}
+
+.heart::after {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: #f20044;
+    right: -50%;
+    border-radius: 100px;
+    box-shadow: 10px 10px 90px #f20044;
+}

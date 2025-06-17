@@ -1,0 +1,810 @@
+/* Estilos generales para el elemento html */
+html {
+	background-color: #f8e6ef;                /* Establece un fondo rosado claro para toda la página */
+	color: #4c2c4d;                           /* Color de texto por defecto: violeta oscuro */
+	font-family: 'Cormorant Garamond', serif;   /* Fuente principal usada en todo el sitio */
+}
+
+/* Estilos generales para el body */
+body {
+    min-height: 100vh;                        /* Hace que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    overflow-x: hidden;                       /* Oculta el desbordamiento horizontal (scroll lateral) */
+    background-color: #f8e6ef;              /* Fondo igual al del elemento html */
+    color: #4c2c4d;                         /* Texto igual al definido en html */
+    font-family: 'Cormorant Garamond', serif; /* Fuente principal (se repite por compatibilidad) */
+    margin: 0;                                /* Elimina los márgenes predeterminados */
+    padding: 0;                               /* Elimina el relleno interno predeterminado */
+    display: flex;                            /* Usa Flexbox para organizar el contenido */
+    flex-direction: column;                   /* Coloca los elementos hijos en columna */
+    align-items: center;                      /* Centra los elementos horizontalmente */
+    justify-content: center;                  /* Centra los elementos verticalmente */
+    padding-top: 25px;                        /* Espacio superior extra para no quedar pegado al borde */
+    background: var(--fondo);
+}
+
+/* Estilo para listas desordenadas (<ul>) */
+ul {  
+    list-style: none;                          /* Elimina los puntos o viñetas predeterminadas */
+    padding: 0;                                /* Quita el espacio interno */
+    margin: 0;                                 /* Quita el espacio externo */
+    display: flex;                             /* Muestra los ítems en una sola línea */
+    justify-content: center;                   /* Centra los ítems horizontalmente */
+}
+
+/* Estilo para los enlaces (<a>) dentro de los <li> */
+ul li a {
+    text-decoration: none;                     /* Quita el subrayado de los enlaces */
+    padding: 15px 20px;                        /* Espaciado interno (alto y a los lados) */
+    color: #4c2c4d;                          /* Color del texto del enlace */
+    font-family: 'Cormorant Garamond', serif;  /* Fuente de los enlaces */
+    font-size: 20px;                           /* Tamaño del texto */
+    transition: 0.5s;                          /* Suaviza la transición cuando el estilo cambia */
+}
+
+/* Estilo cuando el mouse pasa sobre el enlace */
+ul li a:hover {
+    background-color: #4c2c4d;               /* Cambia el fondo a violeta oscuro */
+    color: #f8e6ef;                          /* Cambia el texto a blanco */
+    cursor: pointer;                           /* Cambia el cursor a una mano (clic) */
+    border-radius: 20px;                       /* Bordes redondeados para efecto visual */
+}
+
+@media (max-width: 768px) {
+
+  /* Para el menú, mejor que sea vertical en móviles */
+  ul {
+    list-style: none;        /* Sin viñetas */
+    padding: 0;
+    margin: 0;
+    display: flex;           /* Flexbox */
+    flex-direction: column;  /* Cambia a columna (vertical) */
+    align-items: center;     /* Centra horizontalmente */
+    width: 100%;             /* Que ocupe todo el ancho */
+  }
+
+  /* Estilo para los enlaces en móviles */
+  ul li a {
+    text-decoration: none;
+    padding: 10px 15px;           /* Menos padding para no saturar */
+    color: #4c2c4d;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;              /* Fuente un poco más pequeña */
+    transition: 0.5s;
+    display: block;               /* Que el enlace ocupe todo el ancho */
+    width: 100%;
+    text-align: center;           /* Centrar texto */
+    box-sizing: border-box;      /* Para que padding no haga overflow */
+  }
+
+  /* Espacio entre enlaces para que no estén pegados */
+  ul li {
+    width: 100%;                 /* Que el li ocupe todo el ancho */
+    margin-bottom: 8px;          /* Espacio entre enlaces */
+  }
+
+  /* Hover igual que antes */
+  ul li a:hover {
+    background-color: #4c2c4d;
+    color: #f8e6ef;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+}
+
+.minitext{
+    flex-direction: column;                  /* Alinea los elementos en columna */
+    transform: translateY(0px);              /* Posición inicial (sin desplazamiento) */
+    margin-bottom: 9px;                      /* Margen inferior */
+    display: flex;                           /* Flexbox para organizar el contenido */
+    align-items: center;                     /* Centra el texto horizontalmente */
+    justify-content: center;                 /* Centra el texto verticalmente */
+    width: 600px;                            /* Ancho fijo del contenedor */
+    height: 90px;                            /* Altura inicial del contenedor */
+    font-size: 20px;                         /* Tamaño del texto */
+}
+
+@media (max-width: 768px) {
+  .minitext {
+    flex-direction: column;                  /* Alinea en columna */
+    transform: translateY(0px);              /* Sin desplazamiento */
+    margin-bottom: 9px;                      /* Margen inferior */
+    display: flex;                           /* Flexbox */
+    align-items: center;                     /* Centra horizontalmente */
+    justify-content: center;                 /* Centra verticalmente */
+    width: 90%;                             /* Ancho relativo para pantallas pequeñas */
+    max-width: 600px;                       /* Máximo ancho para pantallas grandes */
+    height: auto;                           /* Altura automática para ajustar contenido */
+    font-size: 18px;                        /* Tamaño de texto ajustado */
+    text-align: center;                     /* Centrar texto para mejor legibilidad */
+  }
+}
+
+/* Contenedor del carrusel */
+.carrusel {
+    display: flex;                           /* Flexbox para alinear los contenidos */
+    align-items: center;                     /* Centrado vertical */
+    justify-content: center;                 /* Centrado horizontal */
+    overflow: hidden;                        /* Oculta lo que se sale del contenedor */
+    width: 100%;                             /* Ocupa todo el ancho de la página */
+    height: 100vh;                           /* Ocupa toda la altura de la ventana */
+}
+
+/* Contenedor de las imágenes del carrusel */
+.imagenes {
+    border-radius: 25px;                     /* Bordes redondeados para el bloque */
+    display: flex;                           /* Flexbox */
+    flex-direction: column;                  /* Alinea los hijos en columna */
+    align-items: center;                     /* Centrado horizontal */
+    justify-content: end;                    /* Alinea el contenido al fondo */
+}
+
+/* Estilo de cada imagen */
+.img {
+    border-radius: 30px;                     /* Bordes redondeados en las imágenes */
+    height: 576px;                           /* Altura fija */
+    width: 1134px;                           /* Ancho fijo */
+    margin: 10px;                            /* Separación externa entre imágenes */
+    object-fit: cover;                       /* Escala la imagen para llenar el contenedor sin deformarse */
+    filter: saturate(175%);                  /* Aumenta la saturación para colores más vivos */
+}
+
+/* Contenedor del texto que aparece sobre la imagen */
+.texto {
+    overflow: hidden;                        /* Oculta el contenido que sobresale del área */
+    position: absolute;                      /* Coloca el texto sobre la imagen */
+    flex-direction: column;                  /* Alinea los elementos en columna */
+    transform: translateY(0px);              /* Posición inicial (sin desplazamiento) */
+    margin-bottom: 9px;                      /* Margen inferior */
+    backdrop-filter: blur(20px);             /* Aplica desenfoque al fondo detrás del texto */
+    display: flex;                           /* Flexbox para organizar el contenido */
+    align-items: center;                     /* Centra el texto horizontalmente */
+    justify-content: center;                 /* Centra el texto verticalmente */
+    border-radius: 25px;                     /* Bordes redondeados */
+    width: 600px;                            /* Ancho fijo del contenedor */
+    height: 100px;                           /* Altura inicial del contenedor */
+    transition: 1s;                          /* Suaviza las transiciones en hover */
+}
+
+/* Estilo para el título dentro del contenedor .texto */
+.texto h3 {
+    text-shadow: 0px 0px 15px #4c2c4d;     /* Sombra violeta suave alrededor del texto */
+    padding-top: 40px;                       /* Espacio superior */
+    color: #f8e6ef;                        /* Texto claro */
+    font-weight: 300;                        /* Peso ligero */
+    font-size: 27px;                         /* Tamaño del título */
+}
+
+/* Estilo para el párrafo dentro del contenedor .texto */
+.texto p {
+    padding: 20px;                           /* Espaciado interno */
+    color: #f8e6ef;                        /* Texto blanco */
+    font-size: 0px;                          /* Inicialmente oculto (no visible) */
+    font-weight: 300;                        /* Peso ligero */
+}
+
+/* Estilo cuando el mouse pasa sobre la imagen */
+.imagenes:hover .texto {
+    transform: translateY(-150px);           /* Desplaza el contenedor hacia arriba */
+    height: 300px;                           /* Aumenta la altura para mostrar más contenido */
+    backdrop-filter: blur(10px);             /* Reduce un poco el desenfoque para más visibilidad */
+}
+
+/* Hace visible el párrafo cuando el mouse está sobre la imagen */
+.imagenes:hover .texto p {
+    transition: font-size 0s .2s linear;     /* Espera 0.2 segundos para mostrar el texto */
+    font-size: 23px;                         /* Muestra el texto aumentando el tamaño */
+    font-weight: 300;                        /* Peso ligero */
+    text-shadow: 0px 0px 10px #4c2c4d;     /* Sombra violeta para mejor lectura */
+}
+
+/* Contenedor de puntos decorativos (como indicadores del carrusel) */
+.puntos {
+    margin-top: -40px;                       /* Sube el contenedor hacia arriba */
+    display: flex;                           /* Flexbox para organizarlos en línea */
+    align-items: center;                     /* Centrado vertical */
+    justify-content: center;                 /* Centrado horizontal */
+}
+
+/* Estilo de los puntos */
+.puntos p {
+    margin-top: -80px;                       /* Sube aún más los puntos */
+    font-size: 100px;                        /* Tamaño muy grande (probablemente íconos circulares) */
+    font-weight: 500;                        /* Peso medio */
+    color: white;                          /* Color blanco */
+}
+
+/* Punto activo o destacado */
+.puntos .bold {
+    font-weight: 700;                        /* Texto en negrita */
+    margin-left: 10px;                       /* Espacio a la izquierda */
+    margin-right: 10px;                      /* Espacio a la derecha */
+    color: #4c2c4d;                        /* Color violeta oscuro para destacarlo */
+}
+
+@media (max-width: 768px) {
+
+  /* ── CONTENEDOR PRINCIPAL ─────────────────────────────── */
+  .carrusel{
+    position: relative;
+    display: flex;
+    align-items: center;          /* flechas centradas verticalmente */
+    justify-content: center;      /* imagen centrada */
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  /* ── FLECHAS ───────────────────────────────────────────── */
+  .atras, .adelante{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+  .atras  {left: 12px;}
+  .adelante{right: 12px;}
+
+  .atras img,
+  .adelante img{
+    width: 36px;                 /* algo más pequeños en móvil */
+    height: 36px;
+    opacity: .75;
+    transition: opacity .3s;
+  }
+  .atras img:hover,
+  .adelante img:hover{opacity: 1;}
+
+  /* ── BLOQUE IMAGEN + TEXTO ────────────────────────────── */
+  .imagenes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;            /* evita que crezca demasiado en tablets */
+    overflow: hidden;
+    position: relative;          /* para el texto superpuesto */
+    border-radius: 12px;
+  }
+
+  /* Imagen */
+  .img{
+    width: 100%;
+    height: auto;               /* mantiene proporción */
+    max-height: 55vh;           /* nunca tapa toda la pantalla */
+    object-fit: cover;          /* rellena sin deformar */
+    border-radius: 12px;
+  }
+
+  /* Texto superpuesto */
+  .texto{
+    position: absolute;
+    bottom: 12px;               /* pegado al borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    padding: 10px 14px;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #f8e6ef;
+    text-align: center;
+    border-radius: 10px;
+    backdrop-filter: blur(16px);              /* difumina la imagen detrás */
+    background: rgba(76, 44, 77, .35);        /* velo violeta semitransparente */
+    box-sizing: border-box;
+  }
+
+  /* Título dentro del texto */
+  .texto h3{
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;          /* ≈18 px */
+    font-weight: 500;
+  }
+
+  /* Párrafo */
+  .texto p{
+    margin: 0;
+    font-size: .95rem;          /* ≈15 px */
+    font-weight: 300;
+  }
+
+  /* ── PUNTOS DE NAVEGACIÓN ─────────────────────────────── */
+  .puntos{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .punto{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    transition: .3s, transform .3s;
+  }
+  .punto.active{
+    background: #4c2c4d;
+    transform: scale(1.25);
+  }
+}
+
+#timeline{
+    content: "";
+    position: center;
+    background: #4c2c4d;
+    margin-top: 60px;
+    width: 1px;
+    left: 50%;
+}
+
+.child{
+    position: relative;
+    margin: 20px;
+    opacity: 0;
+}
+
+/*Pares*/
+.child:nth-child(odd){
+    float: left;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 0px 20px 20px 20px;
+}
+
+.child:nth-child(odd)::before{
+    content: '';
+    position: absolute;
+    background: #4c2c4d;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    left: -30px;
+}
+
+.child:nth-child(odd)::after{
+    content: '';
+    position: absolute;
+    background: #4c2c4d;
+    width: 10px;
+    height: 2px;
+    left: -10px;
+    top: 10px;
+}
+
+/*Impares*/
+.child:nth-child(even){
+    float: right;
+    border-radius: 20px 0px 20px 20px;
+    text-align: right;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.child:nth-child(even)::before{
+    content: '';
+    position: absolute;
+    background: #4c2c4d;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    right: -30px;
+}
+
+.child:nth-child(even)::after{
+    content: '';
+    position: absolute;
+    background: #4c2c4d;
+    width: 10px;
+    height: 2px;
+    right: -10px;
+    top: 10px;
+}
+
+.content{
+    width: 300px;
+    padding: 15px;
+    color: #4c2c4d;
+    background: rgb(255,255,255,0.2);
+}
+
+.img-timeline {
+    width: 100%;           /* O un tamaño específico como 200px */
+    height: auto;
+    border-radius: 10px;   /* Bordes redondeados (opcional) */
+    margin-bottom: 10px;   /* Espacio entre imagen y texto */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/*Animacion de timeline*/
+._show{
+    opacity: 1;
+    animation:   __show 1s cubic-bezier(.99,-.7,.2,1.9);
+}
+
+._hide{
+    opacity: 1;
+    animation:   __hide 1s cubic-bezier(.99,-.7,.2,1.9);
+}
+
+@keyframes __show{
+    0%{transform: translateY(500px); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+}
+
+@keyframes __hide{
+    0%{transform: translateY(0); opacity: 1;}
+    100%{transform: translateY(500px); opacity: 0;}
+}
+
+.Boxes-container{
+  display: flex;         /* Alinea hijos horizontalmente */
+  gap: 40px;             /* Espacio entre las 2 tablas */
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.drag{
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 columnas de 100px */
+    grid-template-rows: repeat(3, 100px);    /* 3 filas de 100px */
+    gap: 10px;                               /* Separación entre piezas */
+    width: max-content;                      /* Se ajusta al contenido */
+    margin: auto;                            /* Centrado horizontal */
+    cursor: grab;
+}
+
+.drag .dragBox {
+    width: 100px;
+    height: 100px;
+    background: #4c2c4d;
+}
+
+
+.imgpuzzle{
+    width: 100%;
+    height: 100%;
+    background: var(--img);
+    background-size: cover;
+    background-position: center;
+}
+
+.reinicio{
+    position: static;
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 10px;   /* espacio arriba del botón */
+    padding: 10px 25px;
+    bottom: 50px;
+    left: 50px;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    border: none;
+    background: #4c2c4d;
+    color: #f8e6ef;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 15px;  
+}
+
+.board{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+.dropBox{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background: #4c2c4d;
+}
+
+:root {
+    --primario: #fff;
+    --fondo: #ffebf2; 
+    --fondo-sobre: #ffe3ed; 
+    --solapa-sobre: #ffccd5; 
+    --cuerpo-sobre: #ffc1d1; 
+    --sombra: rgba(0, 0, 0, 0.2);
+    --texto: #003049; 
+    --corazon: #ff477e; 
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif; 
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: #444;
+}
+
+.contenedor {
+    width: 400px;
+}
+
+.envoltura-sobre {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobre {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derecha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.carta {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+    overflow: hidden; /* Para que el contenido no se desborde */
+}
+
+.contenido {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+
+}
+
+.corazon:before {
+    top: -15px;
+}
+
+.corazon:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abierto .sobre::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abierto .corazon {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.carta.mostrar-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.cerrando-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.abierta {
+    z-index: 10000;
+}
+
+.envoltura-sobre.desactivar-sobre .sobre::before {
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .dropBox {
+    width: 90px;
+    height: 90px;
+    background: #4c2c4d;
+    margin: auto;
+  }
+
+  .contenedor {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .envoltura-sobre {
+    border-radius: 10px;
+    box-shadow: 0 0 25px var(--sombra);
+  }
+
+  .sobre {
+    width: 100%;
+    height: 240px;
+    position: relative;
+  }
+
+  .sobre::before {
+    border-top: 130px solid var(--solapa-sobre);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    border-radius: 8px;
+  }
+
+  .solapa-derecha,
+  .solapa-izquierda {
+    clip-path: none;
+    background-color: var(--cuerpo-sobre);
+    border-radius: 8px;
+  }
+
+  .solapa-derecha {
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+
+  .solapa-izquierda {
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+
+  .carta {
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .contenido {
+    font-size: 11px;
+    line-height: 1.3;
+    padding: 8px;
+    border-width: 2px;
+    overflow-y: auto;
+  }
+
+  .corazon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .corazon::before,
+  .corazon::after {
+    width: 22px;
+    height: 22px;
+  }
+
+  .corazon::before {
+    top: -11px;
+  }
+
+  .corazon::after {
+    right: 11px;
+  }
+
+  .carta.mostrar-carta,
+  .carta.cerrando-carta {
+    transform: translateY(-230px); /* adaptado al nuevo alto */
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4c2c4d; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(105, 14, 103);
+}
+
+@media screen and (max-width:400px){
+    .contenedor {
+        width: 300px;
+    }
+
+    .sobre {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobre::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
+/* Estilo del pie de página */
+footer {
+    background-color: #4c2c4d;             /* Fondo violeta oscuro */
+    color: #f8e6ef;                          /* Texto rosado claro */
+    padding: 20px;                           /* Espaciado interno */
+    text-align: center;                      /* Centra el contenido horizontalmente */
+}
